@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: CustomerService
+
+  datasource:
+    url: jdbc:h2:mem:custDb
+    driver-class-name: org.h2.Driver
+    username: user
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/customerDB
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#      generate-ddl: true
+#      show-sql: true
+#
+
+  profiles:
+    active: local
+  mvc:
+    throw-exception-if-no-handler-found:true
+server:
+  port: 9091
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,beans,metrics,endpoints
+      base-path: /actuator
+
+springdoc:
+#  api-docs:
+#    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
