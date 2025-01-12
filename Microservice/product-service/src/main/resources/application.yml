@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: product-service
+
+  datasource:
+    url: jdbc:h2:mem:productdb
+    driver-class-name: org.h2.Driver
+    username: user
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui/index.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, env, metrics, health, httptrace
+    health:
+      show-details: always
